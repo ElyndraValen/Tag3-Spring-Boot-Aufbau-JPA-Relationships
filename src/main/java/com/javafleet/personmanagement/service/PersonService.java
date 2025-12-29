@@ -27,7 +27,7 @@ public class PersonService {
         List<Person> lp = new ArrayList<>();
         if (personRepository.count() <= 0) {
             Faker f = new Faker();
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 100; i++) {
 
                 Person p = new Person(f.name().firstName(), f.name().lastName());
                 p.setEmail(p.getFirstname() + "." + p.getLastname() + "@" + f.internet().domainName() + f.internet().domainSuffix());
@@ -38,7 +38,8 @@ public class PersonService {
                 lp.add(p);
                 personRepository.save(p);
             }
+            return  lp;
         }
-        return lp;
+        return personRepository.findAll();
     }
 }

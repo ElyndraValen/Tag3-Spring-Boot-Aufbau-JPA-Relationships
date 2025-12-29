@@ -39,7 +39,7 @@ public class Address {
     @Column(nullable = false, length = 10)
     private String zipCode;
     
-    @Size(max = 50)
+    @Size(max = 100)
     @Column(length = 50)
     private String country;
     
