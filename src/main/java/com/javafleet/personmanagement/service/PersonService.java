@@ -31,9 +31,9 @@ public class PersonService {
 
                 Person p = new Person(f.name().firstName(), f.name().lastName());
                 p.setEmail(p.getFirstname() + "." + p.getLastname() + "@" + f.internet().domainName() + f.internet().domainSuffix());
-                p.getAddresses().add(new Address(f.address().streetName(), f.address().cityName(),
+                p.addAddress(new Address(f.address().streetName(), f.address().cityName(),
                         f.address().zipCode(), f.address().country()));
-                p.getAddresses().add(new Address(f.address().streetName(), f.address().cityName(),
+                p.addAddress(new Address(f.address().streetName(), f.address().cityName(),
                         f.address().zipCode(), f.address().country()));
                 lp.add(p);
                 personRepository.save(p);

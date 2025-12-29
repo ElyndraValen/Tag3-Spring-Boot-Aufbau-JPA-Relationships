@@ -56,6 +56,11 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
      */
     List<Person> findByAddresses_City(String city);
     
+    
+    public List<Person> findByAddresses_Country(String city);
+    
+    
+    
     /**
      * Finde Personen mit bestimmtem Adresstyp
      * Spring Data JPA generiert automatisch den JOIN:

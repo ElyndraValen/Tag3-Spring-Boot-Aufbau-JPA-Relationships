@@ -1,5 +1,6 @@
 package com.javafleet.personmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -59,6 +60,7 @@ public class Address {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     @ToString.Exclude
+    @JsonBackReference("person-addresses")
     private Person person;
 
     public Address() {

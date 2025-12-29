@@ -103,6 +103,13 @@ public class PersonController {
         return personRepository.findByAddresses_City(city);
     }
     
+    
+     @GetMapping("/search/by-country")
+    public List<Person> searchByCountry(@RequestParam String country) {
+        return personRepository.findByAddresses_Country(country);
+    }
+    
+    
     /**
      * Suche Personen mit Adresstyp
      * GET /api/persons/search/by-address-type?type=HOME

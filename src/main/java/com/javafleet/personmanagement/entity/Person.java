@@ -1,5 +1,6 @@
 package com.javafleet.personmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -56,6 +57,7 @@ public class Person {
         fetch = FetchType.LAZY
     )
     @ToString.Exclude
+    @JsonManagedReference("person-addresses")
     private List<Address> addresses = new ArrayList<>();
     
     /**
@@ -69,6 +71,7 @@ public class Person {
         fetch = FetchType.LAZY
     )
     @ToString.Exclude
+    @JsonManagedReference("person-orders")
     private List<Order> orders = new ArrayList<>();
 
     public Person() {

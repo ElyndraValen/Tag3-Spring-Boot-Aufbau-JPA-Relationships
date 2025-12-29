@@ -1,5 +1,6 @@
 package com.javafleet.personmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,6 +47,7 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     @ToString.Exclude
+    @JsonBackReference("person-orders")
     private Person person;
     
     /**
